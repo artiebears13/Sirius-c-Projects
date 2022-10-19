@@ -1,7 +1,4 @@
 # ninja log v5
-0	387	6878885692256016	CMakeFiles/hello.dir/main.cpp.obj	4a7f42946e554c6d
-668	981	6878885698155227	hello.exe	7820f7ee0a212b37
-25	663	6878885695018380	CMakeFiles/hello.dir/hello.cpp.obj	5c1fa70d6ecc1b72
-4	373	6878887414369556	CMakeFiles/hello.dir/main.cpp.obj	c07670343e6e8ee2
-25	621	6878887416863141	CMakeFiles/hello.dir/hello.cpp.obj	490b1d4d86c3846d
-621	769	6878887418319009	hello.exe	7820f7ee0a212b37
+3	361	6878892355992491	CMakeFiles/hello.dir/main.cpp.obj	7e115789ca4c202d
+611	757	6878892359912329	hello.exe	7820f7ee0a212b37
+25	611	6878892358486069	CMakeFiles/hello.dir/hello.cpp.obj	cf3096db36bbbc5c
