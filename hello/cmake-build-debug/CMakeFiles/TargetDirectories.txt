@@ -1,0 +1,3 @@
+C:/Users/ArtMed/Desktop/sirius c++/hello/cmake-build-debug/CMakeFiles/hello.dir
+C:/Users/ArtMed/Desktop/sirius c++/hello/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ArtMed/Desktop/sirius c++/hello/cmake-build-debug/CMakeFiles/rebuild_cache.dir
