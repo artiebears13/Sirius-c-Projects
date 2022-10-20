@@ -41,13 +41,19 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/ArtMed/Desktop/Sirius-c-Projects/hello/cmake-build-debug/
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target hello
+# Object build statements for EXECUTABLE target hello
 
 
 #############################################
 # Order-only phony target for hello
 
 build cmake_object_order_depends_target_hello: phony || CMakeFiles/hello.dir
+
+build CMakeFiles/hello.dir/main.cpp.obj: CXX_COMPILER__hello_Debug C$:/Users/ArtMed/Desktop/Sirius-c-Projects/hello/main.cpp || cmake_object_order_depends_target_hello
+  DEP_FILE = CMakeFiles\hello.dir\main.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\hello.dir
+  OBJECT_FILE_DIR = CMakeFiles\hello.dir
 
 build CMakeFiles/hello.dir/hello.cpp.obj: CXX_COMPILER__hello_Debug C$:/Users/ArtMed/Desktop/Sirius-c-Projects/hello/hello.cpp || cmake_object_order_depends_target_hello
   DEP_FILE = CMakeFiles\hello.dir\hello.cpp.obj.d
@@ -57,52 +63,21 @@ build CMakeFiles/hello.dir/hello.cpp.obj: CXX_COMPILER__hello_Debug C$:/Users/Ar
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target hello
+# Link build statements for EXECUTABLE target hello
 
 
 #############################################
-# Link the static library libhello.a
+# Link the executable hello.exe
 
-build libhello.a: CXX_STATIC_LIBRARY_LINKER__hello_Debug CMakeFiles/hello.dir/hello.cpp.obj
-  LANGUAGE_COMPILE_FLAGS = -g
+build hello.exe: CXX_EXECUTABLE_LINKER__hello_Debug CMakeFiles/hello.dir/main.cpp.obj CMakeFiles/hello.dir/hello.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\hello.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = libhello.a
-  TARGET_PDB = hello.a.dbg
-
-# =============================================================================
-# Object build statements for EXECUTABLE target main
-
-
-#############################################
-# Order-only phony target for main
-
-build cmake_object_order_depends_target_main: phony || cmake_object_order_depends_target_hello
-
-build CMakeFiles/main.dir/main.cpp.obj: CXX_COMPILER__main_Debug C$:/Users/ArtMed/Desktop/Sirius-c-Projects/hello/main.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir
-
-
-# =============================================================================
-# Link build statements for EXECUTABLE target main
-
-
-#############################################
-# Link the executable main.exe
-
-build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.obj | libhello.a || libhello.a
-  FLAGS = -g
-  LINK_LIBRARIES = libhello.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\main.dir
-  POST_BUILD = cd .
-  PRE_LINK = cd .
-  TARGET_FILE = main.exe
-  TARGET_IMPLIB = libmain.dll.a
-  TARGET_PDB = main.exe.dbg
+  TARGET_FILE = hello.exe
+  TARGET_IMPLIB = libhello.dll.a
+  TARGET_PDB = hello.exe.dbg
 
 
 #############################################
@@ -130,9 +105,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build hello: phony libhello.a
-
-build main: phony main.exe
+build hello: phony hello.exe
 
 # =============================================================================
 # Folder targets.
@@ -142,7 +115,7 @@ build main: phony main.exe
 #############################################
 # Folder: C:/Users/ArtMed/Desktop/Sirius-c-Projects/hello/cmake-build-debug
 
-build all: phony libhello.a main.exe
+build all: phony hello.exe
 
 # =============================================================================
 # Built-in targets
