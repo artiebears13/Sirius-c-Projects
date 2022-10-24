@@ -1,5 +1,6 @@
 #include <iostream>
 #include "math.h"
+#include <chrono>
 
 bool isprime(int num) {
     if (num <= 1)
@@ -19,9 +20,14 @@ int countPrimes(int start,int end){
     return count;
 }
 
-    int main() {
-    int start= 2;
-    int end = 10000;
-    std::cout <<std::endl<<"Primes in Ranges : "<<countPrimes(start,end);
+int main() {
+    int first= 2;
+    int last = 100000;
+    auto start = std::chrono::steady_clock::now();
+    std::cout <<std::endl<<"Primes in Ranges : "<<countPrimes(first,last)<<std::endl;
+
+    auto end = std::chrono::steady_clock::now();    auto elapsed = end - start;
+    std::cout << "Time = " << std::chrono::duration_cast<std::chrono::nanoseconds>(elapsed).count() / 1e9 << " seconds" << std::endl;
+
     return 0;
 }

@@ -44,6 +44,10 @@ int main() {
         if (nowline.x_cross_line(x[0], x[1]) == 1) {
             ++cross_counter;
         }
+        if (nowline.x_cross_line(x[0], x[1]) == 2) {
+            cross_counter=-1;
+            break;
+        }
     }
     int last = x_points.size() - 1;
 
@@ -51,6 +55,7 @@ int main() {
     int &y1 = y_points.at(last);
     int &x2 = x_points.at(0);
     int &y2 = y_points.at(0);
+
     if ((x1 == x1) && (y1 == y2)) {
 
     } else {
@@ -58,14 +63,23 @@ int main() {
         if (nowline.x_cross_line(x[0], x[1]) == 1) {
             ++cross_counter;
         }
+        if (nowline.x_cross_line(x[0], x[1]) == 2) {
+            cross_counter=-1;
+        }
     }
 
-
-    if (cross_counter % 2 == 0) {
-        std::cout << cross_counter << " dot is outside" << std::endl;
-    } else {
-        std::cout << "dot is inside" << std::endl;
+    if (cross_counter==-1){
+        std::cout<<"dot is on the border";
     }
+    else
+    {
+        if (cross_counter % 2 == 0) {
+            std::cout << cross_counter << " dot is outside" << std::endl;
+        } else {
+            std::cout << "dot is inside" << std::endl;
+        }
+    }
+
 
 
     return 0;
