@@ -3,4 +3,4 @@ project(checking_some_functions)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(checking_some_functions main.cpp)
+add_executable(checking_some_functions main.cpp square_solver.cpp square_solver.h)

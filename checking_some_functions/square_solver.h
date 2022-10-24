@@ -1,0 +1,1 @@
+double square_solver(double a,double b, double c);
