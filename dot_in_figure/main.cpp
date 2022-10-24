@@ -10,7 +10,7 @@ int main() {
     std::string filename = "C:\\Users\\ArtMed\\Desktop\\Sirius-c-Projects\\dot_in_figure\\file.txt";
 
     int x_coord, y_coord;
-    int x[2] = {10, 5}; //outside
+    int x[2] = {5, 10}; //outside
     int cross_counter = 0;
     std::vector<int> x_points;
     std::vector<int> y_points;
@@ -67,7 +67,7 @@ int main() {
             cross_counter=-1;
         }
     }
-
+    std::cout<<cross_counter<<std::endl;
     if (cross_counter==-1){
         std::cout<<"dot is on the border";
     }

@@ -24,7 +24,7 @@
                 return 1;
             } else {
                 if (x1 == x) {
-                    std::cout << "dot is on the border";
+                    //std::cout << "dot is on the border";
                     return 2;
                 } else {
                     return 0;
@@ -38,7 +38,7 @@
             } else {
                 if (x1==x)
                 {
-                    std::cout<<"dot is on the border";
+                    //std::cout<<"dot is on the border"<<std::endl;
                     return 2;
                 }
                 else {
@@ -55,17 +55,18 @@
                 if (get_cross_x(x, y)==1) {
                     return 1;
                 } else {
-                    return 0;
+                    if (get_cross_x(x,y)==2)
+                    {
+                        return 2;
+                    }
+                    else {
+                        return 0;
+                    }
                 }
             } else {
-                if (get_cross_x(x,y)==2)
-                {
-                    return 2;
+                return 0;
                 }
-                else {
-                    return 0;
-                }
-            }
+
         }
     }
 
