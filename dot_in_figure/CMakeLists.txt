@@ -3,4 +3,4 @@ project(dot_in_figure)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(dot_in_figure main.cpp Line.cpp Line.h)
+add_executable(dot_in_figure main.cpp Line.cpp Line.h test.cpp)
