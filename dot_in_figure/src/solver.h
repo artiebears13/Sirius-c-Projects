@@ -1,4 +1,4 @@
 #include <vector>
+using namespace std;
 
-
-int solver(std::vector<float> x_points, std::vector<float> y_points, float x, float y);
+int is_inside_poly(vector<double> x_arr, vector<double> y_arr, double x, double y);
