@@ -33,7 +33,7 @@ int is_inside_poly(vector<double> x_arr, vector<double> y_arr, double x, double 
     double second[3];
     double eps = 1e-5;
     std::vector<double> angles;
-
+    double summary_angle = 0;
 
     for (int i = 0; i < x_arr.size() - 1; ++i) {
         double x1 = x_arr[i];
@@ -43,6 +43,8 @@ int is_inside_poly(vector<double> x_arr, vector<double> y_arr, double x, double 
         cout<<"========================"<<endl;
         cout<<x1<<" "<<y1<<" and "<<x2<<" "<<y2<<endl;
 
+//        first is the first vector
+//        second - second vector
         first[0] = x1 - x;
         first[1] = y1 - y;
         first[2] = 0;
@@ -70,18 +72,12 @@ int is_inside_poly(vector<double> x_arr, vector<double> y_arr, double x, double 
 
 
         double alpha = std::acos(cos_alpha);
-        angles.push_back(alpha * dir);
+        alpha=alpha*dir;
+        if (fabs(fabs(alpha) - M_PI) < eps) {
+            return -1;}
+        summary_angle+=alpha*dir;
     }
-    double summary_angle = 0;
-    for (int alpha = 0; alpha < angles.size(); ++alpha) {
 
-        summary_angle += angles[alpha];
-
-        //if angle is equals to pi, it means that dot is on the edge
-        if (fabs(fabs(angles[alpha]) - M_PI) < eps) {
-            return -1;
-        }
-    }
     cout << summary_angle << endl;
     //if angle is equals to 2pi => dot is inside, otherwise => outside
     is_outside = !(fabs(fabs(summary_angle) - 2 * M_PI) < eps);

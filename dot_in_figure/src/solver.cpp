@@ -52,7 +52,7 @@ int is_inside_poly(vector<double> x_arr, vector<double> y_arr, double x, double 
         double norm_a = std::sqrt(first[0] * first[0] + first[1] * first[0]);
         double norm_b = std::sqrt(second[0] * second[0] + second[1] * second[0]);
 
-        //case if dot = vartex
+        //case if dot = vertex
         if ((norm_a < eps) or (norm_b < eps)) {
             return -1;
         }

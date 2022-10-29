@@ -2,7 +2,39 @@
 // Created by ArtMed on 29.10.2022.
 //
 
-#ifndef ROBOT_ROBOT_H
-#define ROBOT_ROBOT_H
+#include <vector>
+#include <string>
+using namespace std;
 
-#endif //ROBOT_ROBOT_H
+
+
+
+enum direction {
+    up, // 0
+    down, // 1
+    rright, // 2
+    lleft, // 3
+    undef_orient
+};
+
+enum Command {
+    f, // 0
+    b, // 1
+    l, // 2
+    r, // 3
+    undef_command
+};
+
+class Robot{
+public:
+    int x;
+    int y;
+    direction dir;
+
+    Robot(int x1, int y1, direction dir1);
+    void action(Command command);
+    void print_pos();
+};
+
+vector<char> get_commands(string filename);
+

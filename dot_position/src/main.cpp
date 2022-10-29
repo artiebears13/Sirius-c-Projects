@@ -2,11 +2,17 @@
 #include <fstream>
 #include <vector>
 #include "solver.h"
+#include "errors_processing.h"
+#include "parser.h"
 
 
 int main(int argc, char **argv) {
     std::string filename;
     double X, Y;
+
+
+    processing(argc, argv, filename, X, Y);
+
     try {
         filename = argv[1];
         X = std::stod(argv[2]);
@@ -19,8 +25,7 @@ int main(int argc, char **argv) {
         exit(-1);
     }
 
-    int x_coord, y_coord;
-    //int x[2] = {5, 0}; //outside
+    double x_coord, y_coord;
     double x[2] = {X, Y};
     int cross_counter = 0;
     std::vector<double> x_points;
