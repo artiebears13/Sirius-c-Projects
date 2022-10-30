@@ -35,6 +35,8 @@ public:
     void action(Command command);
     void print_pos();
 };
+Command convert_command(string s);
 
-vector<char> get_commands(string filename);
+vector<Command> get_commands(string filename);
+direction convert_orient(string s);
 
