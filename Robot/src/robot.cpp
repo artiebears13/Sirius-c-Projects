@@ -102,7 +102,22 @@ void Robot::action(Command command) {
 }
 
 void Robot::print_pos() {
-    cout << "x:" << x << ", y:" << y << ", direction:" << dir << endl;
+    cout << "x:" << x << ", y:" << y << ", direction:";
+    switch (dir) {
+        case up:
+            cout<<"up"<<endl;
+            break;
+        case down:
+            cout<<"down"<<endl;
+            break;
+        case rright:
+            cout<<"right"<<endl;
+            break;
+        case lleft:
+            cout<<"left"<<endl;
+            break;
+
+    }
 }
 
 Command convert_command(string s) {
