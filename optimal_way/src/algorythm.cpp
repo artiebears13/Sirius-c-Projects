@@ -1,3 +1,5 @@
-//
-// Created by ArtMed on 31.10.2022.
-//
+#include <vector>
+
+int find_path(int** a){
+
+}
