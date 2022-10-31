@@ -157,5 +157,6 @@ vector<Command> get_commands(string filename){
         }
         command.push_back(ci);
     }
+    infile.close();
     return command;
 }
