@@ -41,5 +41,5 @@ if __name__ == "__main__":
     plt.grid()
     line, = ax.plot([], [], lw=2, color='black', marker='o')
     anim = animation.FuncAnimation(fig, animate_xy,
-                                   frames=len(xs), interval=500, blit=False)
+                                   frames=len(xs), interval=250, blit=False)
     plt.show()

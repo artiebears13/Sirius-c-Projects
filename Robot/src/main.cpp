@@ -23,7 +23,7 @@ int main(int argc, char *argv[]) {
     Robot robot(x,y,start_orient);
     vector<Command> command;
     command= get_commands(path);
-    string file_path="..\\src\\points.txt";
+    string file_path="..\\src\\commands.txt";
     ofstream my_file;
     my_file.open(file_path);
     my_file.clear();
