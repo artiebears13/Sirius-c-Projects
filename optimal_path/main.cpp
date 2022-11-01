@@ -4,44 +4,20 @@
 #include <sstream>
 #include <limits>
 #include "plotting.h"
-
-int fill(int a, int b)
-{
-    return a+b;
-}
-
-enum prev {
-    left,
-    right,
-    up,
-    none
-};
-
-struct Vertice {
-    bool visited;
-    int path_weight;
-    int own_weight;
-    prev previous;
-};
-
-
-
-
+#include "datas.h"
 
 
 int main(int argc, char** argv) {
 
-
-
-
     std::string filename=argv[1];
-    int n = std::stoi(argv[2]); // dimention
-    int start=std::stoi(argv[3]); //start number
-    int finish_j=std::stoi(argv[4]);//end number
+    int n = std::stoi(argv[2]); // dimention rows
+    int k =std::stoi(argv[3]);//dimention columns
+    int start=std::stoi(argv[4]); //start number
+    int finish_j=std::stoi(argv[5]);//end number
     std::ifstream file(filename);
     std::string line;
     int N = 5;
-    Vertice p[n][n];
+    Vertice p[n][k];
 
 
     // Read file
@@ -49,32 +25,16 @@ int main(int argc, char** argv) {
     while(std::getline(file, line))
     {
         std::vector <int> coordinates;
-        std::stringstream line_stream;
-        line_stream << line;
-        std::string point;
-        while(std::getline(line_stream, point, ' '))
-        {
-            try
-            {
-                coordinates.push_back(std::stoi(point));
-            }
-            catch (std::invalid_argument){
-                return -1;
-            }
-        }
-        for (int j = 0; j < N; ++j){
+        coordinates= get_row(line);
+        for (int j = 0; j < k; ++j){
             p[current_line][j].own_weight = coordinates[j];
         }
         ++current_line;
     }
 
 
-
-
-
-
     for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < n; ++j) {
+        for (int j = 0; j < k; ++j) {
             p[i][j].visited= false;
             p[i][j].path_weight= std::numeric_limits<int>::max();
             p[i][j].previous=none;
@@ -83,18 +43,14 @@ int main(int argc, char** argv) {
     p[0][start].path_weight=0;
 
 
-
 std::cout<<"----------MATRIX:------------"<<std::endl;
     for (int i = 0; i < n; ++i) {
         std::cout<<std::endl;
-        for (int j = 0; j < n; ++j) {
+        for (int j = 0; j < k; ++j) {
             std::cout<<p[i][j].own_weight<<" ";
         }
-
     }
     std::cout<<std::endl<<"---------------------------"<<std::endl;
-
-
 
     bool end=false;  //end=true if all points was visited
     while (!end) {
@@ -106,7 +62,7 @@ std::cout<<"----------MATRIX:------------"<<std::endl;
         int min_i = -1;  //-1 to detect if min not found
         int min_j = -1;
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; ++j) {
+            for (int j = 0; j < k; ++j) {
                 if (!(p[i][j].visited) && (p[i][j].path_weight < min_weight)) {
                     min_weight = p[i][j].path_weight;
                     min_i = i;
@@ -126,7 +82,7 @@ std::cout<<"----------MATRIX:------------"<<std::endl;
             }
 
 //----------------checking right point
-            if ((min_j != n - 1) && (!p[min_i][min_j + 1].visited)
+            if ((min_j != k - 1) && (!p[min_i][min_j + 1].visited)
                 && (p[min_i][min_j + 1].path_weight > p[min_i][min_j].path_weight + p[min_i][min_j].own_weight)) {
                 p[min_i][min_j + 1].path_weight = p[min_i][min_j].path_weight + p[min_i][min_j].own_weight;
                 p[min_i][min_j + 1].previous = left;
@@ -172,24 +128,25 @@ std::vector<int> path_Y;
     path_X.push_back(i);
     path_Y.push_back(j);
     std::cout<<"PATH: ";
-    for (int k = path_Y.size()-1; k >= 1; --k) {
-        std::cout<<"("<<path_X[k]<<","<<path_Y[k]<<") -> ";
+
+
+    for (int l = path_Y.size() - 1; l >= 1; --l) {
+        std::cout << "(" << path_X[l] << "," << path_Y[l] << ") -> ";
     }
     std::cout<<"("<<path_X[0]<<","<<path_Y[0]<<")"<<std::endl;
-//   to file for plot---------------------------
+
+    //   to file for plot---------------------------
 
     std::string file_path="path.txt";
     std::ofstream my_file;
     my_file.open(file_path);
     my_file.clear();
 
-    for (int k = path_Y.size()-1; k >= 0; --k) {
-//        std::cout << "(" << path_X[k] << "," << path_Y[k] << ") -> ";
-        path_X[k]=n-1-path_X[k];
-        my_file << path_Y[k] << " " << path_X[k] << std::endl;
+    for (int l = path_Y.size() - 1; l >= 0; --l) {
+        path_X[l]= n - 1 - path_X[l];
+        my_file << path_Y[l] << " " << path_X[l] << std::endl;
     }
     plot(file_path);
 
-//
     return 0;
 }
