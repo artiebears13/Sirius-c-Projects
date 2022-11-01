@@ -4,8 +4,10 @@ project(optimal_path)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(optimal_path main.cpp
-        plotting.h
-        plotting.cpp
-        datas.cpp
-        datas.h
+        src/plotting.h
+        src/plotting.cpp
+        src/datas.cpp
+        src/datas.h
+        src/min_search.cpp
+        src/min_search.h
         )
