@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <limits>
 
 int fill(int a, int b)
 {
@@ -74,7 +75,7 @@ int main(int argc, char** argv) {
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             p[i][j].visited= false;
-            p[i][j].path_weight= 10000;
+            p[i][j].path_weight= std::numeric_limits<int>::max();
             p[i][j].previous=none;
         }
     }
@@ -100,7 +101,7 @@ std::cout<<"----------MATRIX:------------"<<std::endl;
 
 //      searching min weight not visited point
 
-        int min_weight = 10000;
+        int min_weight = std::numeric_limits<int>::max();
         int min_i = -1;  //-1 to detect if min not found
         int min_j = -1;
         for (int i = 0; i < n; i++) {
