@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <limits>
+#include "plotting.h"
 
 int fill(int a, int b)
 {
@@ -175,25 +176,20 @@ std::vector<int> path_Y;
         std::cout<<"("<<path_X[k]<<","<<path_Y[k]<<") -> ";
     }
     std::cout<<"("<<path_X[0]<<","<<path_Y[0]<<")"<<std::endl;
+//   to file for plot---------------------------
 
+    std::string file_path="path.txt";
+    std::ofstream my_file;
+    my_file.open(file_path);
+    my_file.clear();
 
-//    for (int i = 0; i < n; ++i) {
-//        std::cout<<std::endl;
-//        for (int j = 0; j < n; ++j) {
-//            std::cout<<p[i][j].previous<<" ";
-//        }
-//
-//    }
-//
-//
-//    for (int i = 0; i < n; ++i) {
-//        std::cout<<std::endl;
-//        for (int j = 0; j < n; ++j) {
-//            std::cout<<p[i][j].path_weight<<" ";
-//        }
-//
-//    }
+    for (int k = path_Y.size()-1; k >= 0; --k) {
+//        std::cout << "(" << path_X[k] << "," << path_Y[k] << ") -> ";
+        path_X[k]=n-1-path_X[k];
+        my_file << path_Y[k] << " " << path_X[k] << std::endl;
+    }
+    plot(file_path);
 
-//-------------------
+//
     return 0;
 }
