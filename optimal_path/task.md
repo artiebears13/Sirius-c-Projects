@@ -24,3 +24,19 @@ $ program_name input_img.png 450 250 0 249 output_img.png
 ```
 , где начальная точка в данном случае в левом верхнем углу, а конечная в правом нижнем (нумерация строк и столбцов начинатется с 0, как и у массивов).
 
+
+---------------------------
+
+# Task: Finding the best route
+
+The robot moves along a two-dimensional rectangular map of size $N \times M$. 
+The map consists of cells, each cell has a height in the range of $[0,255]$.
+From each cell, the robot can move in three directions - to the left, to the right or down (with the exception of cells located on the border). 
+When moving to a new cell, the robot expends energy equal to 1 + the height of this cell.
+The robot starts its movement from the given point $x_s$ of the uppermost row and must come to the given point $x_f$ of the lowermost row of the map.
+It is necessary to write a program that for a given map will find the least energy-consuming route for the robot.
+
+The map is a 3-channel image in png format, the map is drawn in blue, and only the blue channel is selected in the program, in the output image the path is drawn in red. As input images, you can create images in MS Paint or any raster editor.
+When choosing a color, R and G values ​​must be zero, and B can be changed from 0 to 255. An example image is given below, the red path is not a solution to the problem, but simply an illustration of how it will be drawn by the program.
+
+![Example](https://github.com/artiebears13/Sirius-c-Projects/blob/main/optimal_path/testImage/example.png)
