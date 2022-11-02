@@ -46,10 +46,10 @@ std::pair<std::vector<int>, std::vector<int>> get_path(Vertice *p, int n, int k,
             case up:
                 i -= 1;
                 break;
-            case right:
+            case rright:
                 j += 1;
                 break;
-            case left:
+            case lleft:
                 j -= 1;
                 break;
         }

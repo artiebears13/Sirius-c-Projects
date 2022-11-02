@@ -2,8 +2,8 @@
 #include <fstream>
 #include <sstream>
 enum prev {
-    left,
-    right,
+    lleft,
+    rright,
     up,
     none
 };
