@@ -144,7 +144,7 @@ void findOptimalPath(int **arr, vector<int> &path, int x_i, int x_f, int rows, i
             end = true;   //if didnt found min = all points visited
         }
     }
-    //  надо захуячить путь назад
+
     std::cout << std::endl << "PATH WEIGHT:" << p[rows - 1][4].path_weight << std::endl;
 
     std::pair<std::vector<int>, std::vector<int>> path_back;
