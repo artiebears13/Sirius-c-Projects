@@ -1,3 +1,12 @@
-# Поиск оптимального пути в матрице.
-На вход программа принимает строку вида:
-```<path to file> <dimention of matrix> <number of start element in first row (numeration from 0)> <number of finish element in first row (numeration from 0)>```
+# Find_optimal_path_problem
+## To run the program: $main img.png rows cols xa xb img_out.png
+
+rows, cols are the size of the img.png in pixels
+
+xa, xb are coordinates of the starting and the final point
+
+img_out.png is the image with a path visualized in rede with a path visualized in red
+
+
+# Examples:
+![] (https://github.com/artiebears13/Sirius-c-Projects/blob/main/optimal_path/testImage/input.png)
