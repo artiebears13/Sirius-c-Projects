@@ -1,6 +1,6 @@
 # Find_optimal_path_problem
 
-Task: ```task.md```
+Task: <a href="https://github.com/artiebears13/Sirius-c-Projects/blob/main/optimal_path/task.md">task.md</a>
 
 ## To run the program: $main img.png rows cols xa xb img_out.png
 
