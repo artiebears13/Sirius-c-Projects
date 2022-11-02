@@ -10,7 +10,7 @@ img_out.png is the image with a path visualized in rede with a path visualized i
 
 # Examples:
 ## Input png:
-![](https://github.com/artiebears13/Sirius-c-Projects/blob/main/optimal_path/testImage/input.png?raw=true | width=200)
+![](https://github.com/artiebears13/Sirius-c-Projects/blob/main/optimal_path/testImage/input.png =250x250)
 
 
 ## Output png:
