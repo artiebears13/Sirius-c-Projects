@@ -17,5 +17,5 @@ img_out.png is the image with a path visualized in rede with a path visualized i
 ![](https://github.com/artiebears13/Sirius-c-Projects/blob/main/optimal_path/testImage/img_out.png?raw=true)
 
 <picture>
- <img alt=" " src="https://github.com/artiebears13/Sirius-c-Projects/blob/main/optimal_path/testImage/input.png">
+ <img src="https://github.com/artiebears13/Sirius-c-Projects/blob/main/optimal_path/testImage/input.png" width="400">
 </picture>>
