@@ -1,4 +1,7 @@
 # Find_optimal_path_problem
+
+Task: ```task.md```
+
 ## To run the program: $main img.png rows cols xa xb img_out.png
 
 rows, cols are the size of the img.png in pixels
