@@ -6,7 +6,8 @@
 using namespace std;
 
 //struct that contains its own value and pointer to next
-struct Node {
+class Node {
+public:
     int val = 0;
     Node *next;
 
@@ -19,7 +20,8 @@ struct Node {
 };
 
 //list specifies by pointers on first and last elements
-struct List {
+class List {
+public:
     Node *first;
     Node *last;
 

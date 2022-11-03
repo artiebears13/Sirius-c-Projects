@@ -31,10 +31,7 @@ int List::remove(int n){
         }
 
         else if (last->val == n) {   //if value of last element is equals to n then we should remove last
-            if (first == last) {     //if list of one element
-                remove_first();
-                return 0;
-            }
+
             remove_last();
             return 0;
         }
