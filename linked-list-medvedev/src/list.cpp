@@ -18,7 +18,7 @@ int delete_n(List l, int n) {
 }
 
 List::~List() {
-    cout<<9;
+    cout<<"destructor"<<endl;
     while (!is_empty()){
         if (last!=first){
             remove_first();
@@ -28,7 +28,6 @@ List::~List() {
 
         }
     }
-
 
 }
 

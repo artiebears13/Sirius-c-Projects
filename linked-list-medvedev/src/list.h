@@ -17,6 +17,10 @@ public:
         val = v;
         next = nullptr;   //at the beginning object not linked with others
     }
+//    ~Node()
+//    {
+//        delete next;
+//    }
 
 };
 
@@ -26,7 +30,7 @@ public:
     Node *first;
     Node *last;
 
-    List() : first(nullptr), last(nullptr) {}; //constructor
+    List() : first(nullptr), last(nullptr) {cout<<"constructor"<<endl;}; //constructor
 
     ~List();          //destructor
 

@@ -40,9 +40,11 @@ int main(int argc, char *argv[]) {
 //    cout << endl;
 //    cout << last<< endl;
 
-
+cout<<"before remove last"<<endl;
     l.remove_last();
+    cout<<"after remove last"<<endl;
     delete_n(l, last);
+    cout<<"after delete_n"<<endl;
 
 
 
