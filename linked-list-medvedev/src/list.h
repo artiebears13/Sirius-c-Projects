@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 
 #ifndef LINKED_LIST_LIST_H
@@ -12,7 +13,7 @@ public:
     Node *next;
 
     //constructor
-    Node(int v){
+    Node(int v) {
         val = v;
         next = nullptr;   //at the beginning object not linked with others
     }
@@ -26,6 +27,8 @@ public:
     Node *last;
 
     List() : first(nullptr), last(nullptr) {}; //constructor
+
+    ~List();          //destructor
 
     //returns true is list is empty
     bool is_empty() {
@@ -90,6 +93,6 @@ public:
     }
 };
 
-int delete_n(List l, int n, string ans);
+int delete_n(List l, int n);
 
 #endif //LINKED_LIST_LIST_H
