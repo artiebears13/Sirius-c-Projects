@@ -43,10 +43,11 @@ int main(int argc, char *argv[]) {
 cout<<"before remove last"<<endl;
     l.remove_last();
     cout<<"after remove last"<<endl;
-    delete_n(l, last);
+    l.delete_n(last);
     cout<<"after delete_n"<<endl;
 
 
 
     return 0;
+
 }

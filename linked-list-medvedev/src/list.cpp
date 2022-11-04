@@ -4,16 +4,16 @@
 
 using namespace std;
 
-int delete_n(List l, int n) {
+int List::delete_n( int n) {
     int counter = 0;
-    while (l.remove(n) != 1) {
+    while (remove(n) != 1) {
         counter++;
     };
     if (counter == 0) {
         cout << "Element " << n << " does not in list" << endl;
     };
 
-    string my_ans = l.print();
+    string my_ans = print();
     return 0;
 }
 
@@ -23,8 +23,8 @@ List::~List() {
         if (last!=first){
             remove_first();
         } else{
-            first= nullptr;
-            last= nullptr;
+            first =nullptr;
+            last =nullptr;
 
         }
     }

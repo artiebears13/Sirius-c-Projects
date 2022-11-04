@@ -95,8 +95,10 @@ public:
         cout << endl;
         return arr;
     }
+
+    int delete_n( int n);
 };
 
-int delete_n(List l, int n);
+
 
 #endif //LINKED_LIST_LIST_H
