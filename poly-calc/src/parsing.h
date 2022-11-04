@@ -8,3 +8,5 @@ vector<operators> get_actions(string line);
 
 pair<vector<operators>, vector<Poly>> input_parsing();
 
+Poly calculate(pair<vector<operators>, vector<Poly>> parsed);
+

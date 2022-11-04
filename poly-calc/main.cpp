@@ -1,6 +1,9 @@
 #include <iostream>
 #include "src/poly.h"
 #include "src/parsing.h"
+#include <vector>
+
+using namespace std;
 
 int main() {
     std::string p1 = "* + [1 0 1] [1 2 3]";
@@ -15,8 +18,13 @@ int main() {
 //    cout << answer;
 
 //    parsing(p1);
+pair<vector<operators>, vector<Poly>> parsed;
+parsed=input_parsing();
+  cout<<calculate(parsed);
 
-input_parsing();
+
+
+
     return 0;
 
 }
