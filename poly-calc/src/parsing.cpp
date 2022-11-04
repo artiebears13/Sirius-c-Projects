@@ -11,8 +11,9 @@ using namespace std;
 
 vector<operators> get_actions(string line) {
     vector<operators> actions;
-    std::map <std::string, int> mapping;
+
     istringstream iss(line);
+    std::map <std::string, int> mapping;
     mapping["+"]  = pplus;
     mapping["-"]  = mminus;
     mapping["*"] = multiply;
