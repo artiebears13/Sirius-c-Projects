@@ -9,12 +9,13 @@
 using namespace std;
 
 enum operators{
+    zero,   // for mapping
     pplus,
     mminus,
     multiply,
     derivative,
     integral,
-    empty
+    eempty
 };
 
 class Poly {

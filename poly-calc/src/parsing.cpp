@@ -1,6 +1,7 @@
 //
 // Created by ArtMed on 03.11.2022.
 //
+
 #include <iostream>
 #include <regex>
 #include "poly.h"
@@ -10,31 +11,37 @@ using namespace std;
 
 vector<operators> get_actions(string line) {
     vector<operators> actions;
-    int i = line.length() - 1;
-    while (i >= 0) {
-        switch (line[i]) {
-            case ' ':
-                i--;
-                continue;
-            case '+':
-                actions.push_back(pplus);
-                i--;
+    std::map <std::string, int> mapping;
+    istringstream iss(line);
+    mapping["+"]  = pplus;
+    mapping["-"]  = mminus;
+    mapping["*"] = multiply;
+    mapping["int"]  = integral;
+    mapping["der"]  = derivative;
+    mapping[""]=eempty;
+    string sign;
+    while (getline(iss,sign, ' ')) {
+        if (mapping[sign]==0){
+            cerr<<"unknown sign";
+            exit(-1);
+        }
+        switch (mapping[sign]) {
+            case pplus:
+                actions.insert(actions.begin(),pplus);
                 break;
-            case '-':
-                actions.push_back(mminus);
-                i--;
+            case mminus:
+                actions.insert(actions.begin(),mminus);
                 break;
-            case '*':
-                actions.push_back(multiply);
-                i--;
+            case multiply:
+                actions.insert(actions.begin(),multiply);
                 break;
-            case 't':
-                actions.push_back(integral);
-                i -= 3;
+            case integral:
+                actions.insert(actions.begin(),integral);
                 break;
-            case 'r':
-                actions.push_back(derivative);
-                i -= 3;
+            case derivative:
+                actions.insert(actions.begin(),derivative);
+                break;
+            case eempty:
                 break;
             default:
                 cerr << "incorrect line";
@@ -42,10 +49,55 @@ vector<operators> get_actions(string line) {
                 break;
         }
 
-        i--;
+
     }
     return actions;
 }
+
+
+//vector<operators> get_actions(string line) {
+//    vector<operators> actions;
+//    int i = line.length() - 1;
+//    while (i >= 0) {
+//        switch (line[i]) {
+//            case ' ':
+//                i--;
+//                continue;
+//            case '+':
+//                actions.push_back(pplus);
+//                i--;
+//                break;
+//            case '-':
+//                actions.push_back(mminus);
+//                i--;
+//                break;
+//            case '*':
+//                actions.push_back(multiply);
+//                i--;
+//                break;
+//            case 't':
+//                actions.push_back(integral);
+//                if (line[i-1]=='n'){
+//                    if (line[i-2]=='i'){
+//                        i -= 3;
+//                    }
+//                }
+//
+//                break;
+//            case 'r':
+//                actions.push_back(derivative);
+//                i -= 3;
+//                break;
+//            default:
+//                cerr << "incorrect line";
+//                exit(-1);
+//                break;
+//        }
+//
+//        i--;
+//    }
+//    return actions;
+//}
 
 
 pair<vector<operators>, vector<Poly>> input_parsing() {
@@ -66,7 +118,7 @@ pair<vector<operators>, vector<Poly>> input_parsing() {
         pos = line.find(result[0]);
         line.erase(pos, result[0].length());
 
-        cout << poly;
+       // cout << poly;
 
         polys.push_back(poly);
     }
@@ -74,6 +126,14 @@ pair<vector<operators>, vector<Poly>> input_parsing() {
 //    for (int i = 0; i < actions.size(); ++i) {
 //        cout<<actions[i]<<endl;
 //    }
+    if (polys.size()==0){
+        cerr<<"no polys entered";
+        exit(0);
+    }
+    if (actions.size()==0){
+        cerr<<"no signs entered";
+        exit(0);
+    }
     pair<vector<operators>, vector<Poly>> res;
     res.first = actions;
     res.second = polys;
