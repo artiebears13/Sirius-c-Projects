@@ -97,7 +97,7 @@ Poly<T> Poly<T>::operator-(Poly<T> poly) {
         ans.coefs[i] = coefs[i];
     }
     for (int i = 0; i < poly.coefs.size(); ++i) {     //until lenght less-len poly
-        ans.coefs[i] -= poly.coefs[i];
+        ans.coefs[i] =ans.coefs[i] - poly.coefs[i];
     }
 
     return ans;
