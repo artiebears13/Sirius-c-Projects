@@ -35,10 +35,11 @@ public:
     Quat operator+=(Quat q);
 
     Quat operator=(int n) {
-        s = n;
-        x = n;
-        y = n;
-        z = n;
+        this->s= n;
+        this->x = n;
+        this->y = n;
+        this->z = n;
+        return *this;
     }
 
 
@@ -77,7 +78,7 @@ Quat<R> Quat<R>::operator+=(Quat<R> q) {
     this->x = x + q.x;
     this->y = y + q.y;
     this->z = z + q.z;
-    return Quat<R>(this->s + q.s, this->x + q.x, this->y + q.y, this->z + q.z);
+    return *this;
 //
 }
 
