@@ -29,7 +29,10 @@ int main() {
                                    {5,  6,  10., 7.},
                                    {1,  2,  3,   6}};
     Poly<Quat<double> > p4(vq1);
-    cout <<( p3 + p4) << endl;
+    cout << "first: " << p3 << endl;
+    cout << "second: " << p4 << endl;
+    cout << " + " << endl;
+    cout << (p3 + p4) << endl;
 
 //    cout<<calculate(parsed);
 
