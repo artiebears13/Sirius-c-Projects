@@ -5,6 +5,7 @@
 
 #include <vector>
 #include <string>
+#include "quat.hpp"
 
 using namespace std;
 

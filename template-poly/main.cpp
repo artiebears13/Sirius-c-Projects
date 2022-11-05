@@ -1,8 +1,8 @@
 #include <iostream>
-#include "src/poly.h"
+#include "src/poly.hpp"
 #include <vector>
 #include <complex>
-#include "src/quat.h"
+#include "src/quat.hpp"
 
 using namespace std;
 

@@ -4,7 +4,7 @@ project(template-poly)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(template-poly main.cpp
-        src/poly.h
-        src/quat.h)
+        src/poly.hpp
+        src/quat.hpp)
 
 
