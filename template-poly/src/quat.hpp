@@ -26,15 +26,15 @@ public:
 //    template <typename R>
     Quat(R a1, R b1, R c1, R d1) : s(a1), x(b1), y(c1), z(d1) {};
 
-    Quat operator+(Quat q);
+    Quat operator+(const Quat &q);
 
-    Quat operator-(Quat q);
+    Quat operator-(const Quat &q);
 
-    Quat operator*(Quat q);
+    Quat operator*(const Quat &q);
 
-    Quat operator+=(Quat q);
+    Quat& operator+=(const Quat &q);
 
-    Quat operator=(int n) {
+    Quat &operator=(int n) {
         this->s= n;
         this->x = n;
         this->y = n;
@@ -68,12 +68,12 @@ bool Quat<R>::operator!=(Quat<R> q) {
 }
 
 template<typename R>
-Quat<R> Quat<R>::operator+(Quat<R> q) {
+Quat<R> Quat<R>::operator+(const Quat<R> &q) {
     return Quat<R>(this->s + q.s, this->x + q.x, this->y + q.y, this->z + q.z);
 }
 
 template<typename R>
-Quat<R> Quat<R>::operator+=(Quat<R> q) {
+Quat<R> &Quat<R>::operator+=(const Quat<R> & q) {
     this->s = s + q.s;
     this->x = x + q.x;
     this->y = y + q.y;
@@ -83,12 +83,12 @@ Quat<R> Quat<R>::operator+=(Quat<R> q) {
 }
 
 template<typename R>
-Quat<R> Quat<R>::operator-(Quat<R> q) {
+Quat<R> Quat<R>::operator-(const Quat<R> &q) {
     return Quat<R>(this->s - q.s, this->x - q.x, this->y - q.y, this->z - q.z);
 }
 
 template<typename R>
-Quat<R> Quat<R>::operator*(Quat<R> q) {
+Quat<R> Quat<R>::operator*(const Quat<R> &q) {
     return Quat<R>(
             this->s * q.s - this->x * q.x - this->y * q.y - this->z * q.z, //=a
             this->s * q.x + this->x * q.s + this->y * q.z - this->z * q.y,  //=b
@@ -100,6 +100,6 @@ Quat<R> Quat<R>::operator*(Quat<R> q) {
 
 template<typename R>
 Quat<R> Quat<R>::operator*(R k) {
-    return Quat<R>(s * k, x * k, y * k, z * k);
+    return Quat<R>(this->s * k, this->x * k, this->y * k, this->z * k);
 }
 
