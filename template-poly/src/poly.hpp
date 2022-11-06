@@ -10,7 +10,7 @@
 using namespace std;
 
 enum operators{
-    zero,   // for mapping
+    zero,   // for mapping  //остатки 6 задания
     pplus,
     mminus,
     multiply,
@@ -48,6 +48,8 @@ public:
 
 
 };
+
+//перегрузка вывода в поток
 template <typename T>
 std::ostream & operator<<(std::ostream &os, Poly<T> p) {
     for (int i = 0; i < p.coefs.size(); ++i) {

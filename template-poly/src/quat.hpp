@@ -21,20 +21,20 @@ public:
 
     Quat() = default;
 
-    explicit Quat(R n) : s(n), x(n), y(n), z(n) {};
+    explicit Quat(R n) : s(n), x(n), y(n), z(n) {};    // записываем в кватернион число
 
 //    template <typename R>
-    Quat(R a1, R b1, R c1, R d1) : s(a1), x(b1), y(c1), z(d1) {};
+    Quat(R a1, R b1, R c1, R d1) : s(a1), x(b1), y(c1), z(d1) {}; //основной конструктор кватеорниона
 
-    Quat operator+(const Quat &q);
+    Quat operator+(const Quat &q);  //перегрузка суммы
 
-    Quat operator-(const Quat &q);
+    Quat operator-(const Quat &q);    // перегрузка разности
 
-    Quat operator*(const Quat &q);
+    Quat operator*(const Quat &q);   //перегрузка умножения
 
-    Quat& operator+=(const Quat &q);
+    Quat& operator+=(const Quat &q);  //+= тоже перегружаем тк в полиноме используется этот оператор
 
-    Quat &operator=(int n) {
+    Quat &operator=(int n) {    // =числу (каждый коэф должен быть равен ему) тоже перегружаем тк в полиноме используется этот оператор
         this->s= n;
         this->x = n;
         this->y = n;
@@ -43,30 +43,33 @@ public:
     }
 
 
-    Quat<R> operator*(R k);
+    Quat<R> operator*(R k);     // умножение кватерниона на число
 
-    bool operator==(Quat q);
+    bool operator==(Quat q);     //перегрузка сравнения 2 кватернионов (логической сравнение для if'ов )
 
-    bool operator!=(Quat q);
+    bool operator!=(Quat q);    // перегрузка логического не равно
 };
 
 template<typename R>
-ostream &operator<<(ostream &os, Quat<R> &q) {
+ostream &operator<<(ostream &os, Quat<R> &q) {          // перегрузка записи в поток (для cout)
     os << "(" << q.s << ", [" << q.x << ", " << q.y << ", " << q.z << "])";
     return os;
 }
 
-
+//реализация методов и перегрузок
 template<typename R>
 bool Quat<R>::operator==(Quat<R> q) {
-    return this->s == q.s && this->x == q.x && this->y == q.y && this->z == q.z;
+    return this->s == q.s && this->x == q.x && this->y == q.y && this->z == q.z; //два кватерниона равны если равны покоэффициентно (тогда возваращаем true)
 }
 
+
+// != возвращает true если не равен хотя бы 1 коэффициент
 template<typename R>
 bool Quat<R>::operator!=(Quat<R> q) {
     return this->s != q.s || this->x != q.x || this->y != q.y || this->z != q.z;
 }
 
+//сумма - покоэффициентная сумма
 template<typename R>
 Quat<R> Quat<R>::operator+(const Quat<R> &q) {
     return Quat<R>(this->s + q.s, this->x + q.x, this->y + q.y, this->z + q.z);
@@ -97,7 +100,7 @@ Quat<R> Quat<R>::operator*(const Quat<R> &q) {
     );
 }
 
-
+//умножение на число - умножение каждого коэфа на число
 template<typename R>
 Quat<R> Quat<R>::operator*(R k) {
     return Quat<R>(this->s * k, this->x * k, this->y * k, this->z * k);
